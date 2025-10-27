@@ -1,0 +1,177 @@
+<DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de Acciones STYLIA</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Se eliminó la referencia a la fuente Inter -->
+    <style>
+        /* Aplicando la fuente Times New Roman y un fondo limpio */
+        body {
+            font-family: 'Times New Roman', Times, serif; /* Fuente cambiada a Times New Roman */
+            background-color: #f4f7f9;
+        }
+        /* Estilo para las celdas del calendario (ajustado para la nueva estructura) */
+        .calendar-cell {
+            min-height: 120px;
+            /* Eliminamos el borde de la celda interna ya que el contenedor de la semana lo tiene */
+            padding: 0; /* padding reseteado, gestionado por el contenedor de la semana */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+        }
+        .calendar-cell:hover {
+            transform: none; /* Desactivar hover en la celda interna para el nuevo layout */
+            box-shadow: none;
+        }
+        .action-tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem; /* rounded-md */
+            font-weight: 600;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        .text-detail {
+            font-size: 0.875rem;
+            /* Color cambiado a un gris muy oscuro (#1f2937, casi negro) para un mejor contraste */
+            color: #1f2937; 
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+
+    <!-- CAMBIO: Fondo del contenedor principal a #daa520 -->
+    <div class="max-w-6xl mx-auto shadow-xl rounded-xl overflow-hidden" style="background-color: #daa520;">
+        
+        <!-- HEADER (Banner) -->
+        <!-- CAMBIO: Fondo del encabezado a BLANCO (bg-white) y texto a #daa520 -->
+        <div class="p-6 sm:p-8 flex justify-between items-center rounded-t-xl bg-white">
+            <!-- Título con color #daa520 - Ahora con font-bold -->
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-wide" style="color: #daa520;">CALENDARIO DE ACCIONES</h1>
+            <!-- Subtítulo con color #daa520 - Ahora con font-bold -->
+            <span class="text-lg font-bold" style="color: #daa520;">STYLIA</span> 
+        </div>
+
+        <!-- LEYENDA / CLAVE DE COLOR -->
+        <!-- Fondo de la leyenda a un blanco suave para legibilidad sobre el dorado -->
+        <div class="p-6 border-b border-gray-100 bg-white">
+            <h2 class="text-xl font-semibold mb-3 text-gray-800">Acciones</h2>
+            <div class="flex flex-wrap gap-4 text-sm">
+                <div class="flex items-center">
+                    <span class="w-4 h-4 rounded-full bg-indigo-500 mr-2"></span>
+                    <span class="text-gray-900">Contenido (Confianza)</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="w-4 h-4 rounded-full bg-green-500 mr-2"></span>
+                    <span class="text-gray-900">Social Commerce (Leads)</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="w-4 h-4 rounded-full bg-purple-500 mr-2"></span>
+                    <span class="text-gray-900">Mobile Commerce (App)</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="w-4 h-4 rounded-full bg-gray-400 mr-2"></span>
+                    <span class="text-gray-900">Redes Sociales</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CALENDARIO GRID (Ahora en formato de lista vertical) -->
+        <!-- Se usa el color de fondo #daa520 del contenedor padre, pero las tarjetas internas serán blancas para que el texto se vea bien. -->
+        <div class="p-4 sm:p-6 space-y-8"> 
+            
+            <!-- SEMANA 1: Lanzamiento de Contenido -->
+            <!-- Fondo de la tarjeta a blanco para contraste con el fondo dorado -->
+            <div class="border border-gray-200 rounded-lg p-4 shadow-md bg-white">
+                <h2 class="text-2xl font-bold mb-3 text-black-700 border-b pb-2 uppercase tracking-wider">Semana 1: Lanzamiento de Contenido (Confianza)</h2>
+                <!-- Usamos una cuadrícula de 2 columnas para acciones dentro de la semana en desktop -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="calendar-cell">
+                        <div class="action-tag bg-indigo-500">Contenido</div>
+                        <p class="text-detail mb-1">Publicación de la Web con páginas clave: Producto detallado, Política de Devoluciones/Garantía, Sección I+D.</p>
+                        <p class="text-detail">Publicar vídeos en YouTube y en la web mostrando el armario en funcionamiento, la instalación y la calidad de los materiales.</p>
+                    </div>
+
+                    <div class="calendar-cell">
+                        <div class="action-tag bg-green-500">Social Commerce</div>
+                        <p class="text-detail">Campaña inicial en Instagram/Facebook: "Conoce STYLIA": Enfoque en los valores y en la App.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEMANA 2: Social Commerce y Mobile (Generación de Leads) -->
+            <!-- Fondo de la tarjeta a blanco para contraste con el fondo dorado -->
+            <div class="border border-gray-200 rounded-lg p-4 shadow-md bg-white">
+                <h2 class="text-2xl font-bold mb-3 text-black-700 border-b pb-2 uppercase tracking-wider">Semana 2: Social Commerce y Mobile Commerce (Generación de Leads)</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="calendar-cell">
+                        <div class="action-tag bg-green-500">Social Commerce</div>
+                        <p class="text-detail mb-1">Implementación de Instagram Shopping.</p>
+                        <p class="text-detail">Lanzamiento de Campañas de generación de Leads en Facebook e Instagram.</p>
+                    </div>
+
+                    <div class="calendar-cell">
+                        <div class="action-tag bg-purple-500">Mobile Commerce</div>
+                        <p class="text-detail mb-1">Notificaciones push de la App anunciando funcionalidades.</p>
+                        <div class="action-tag bg-green-500 mt-2">Contenido Corto</div>
+                        <p class="text-detail">Publicación de los primeros Reels/TikToks.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEMANA 3: (Continuación de Leads y Mobile) -->
+            <!-- Fondo de la tarjeta a blanco para contraste con el fondo dorado -->
+            <div class="border border-gray-200 rounded-lg p-4 shadow-md bg-white">
+                <h2 class="text-2xl font-bold mb-3 text-black-700 border-b pb-2 uppercase tracking-wider">Semana 3: Continuación y Optimización</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="calendar-cell">
+                        <div class="action-tag bg-green-500">Social Media</div>
+                        <p class="text-detail mb-1">Continuación y optimización de las Campañas de generación de Leads.</p>
+                        <div class="action-tag bg-gray-400 mt-2">Redes Sociales</div>
+                        <p class="text-detail">Monitorización y respuesta activa a UGC y reseñas.</p>
+                    </div>
+
+                    <div class="calendar-cell">
+                        <div class="action-tag bg-purple-500">Mobile Commerce</div>
+                        <p class="text-detail mb-1">Segunda ola de Notificaciones push de la App.</p>
+                        <div class="action-tag bg-gray-400 mt-2">Redes Sociales</div>
+                        <p class="text-detail">Publicación de contenido de I+D en LinkedIn.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEMANA 4: (Consolidación y Mantenimiento) -->
+            <!-- Fondo de la tarjeta a blanco para contraste con el fondo dorado -->
+            <div class="border border-gray-200 rounded-lg p-4 shadow-md bg-white">
+                <h2 class="text-2xl font-bold mb-3 text-black-700 border-b pb-2 uppercase tracking-wider">Semana 4: Consolidación y Planificación</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                    <div class="calendar-cell">
+                        <div class="action-tag bg-green-500">Social Commerce</div>
+                        <p class="text-detail mb-1">Evaluación de rendimiento de Instagram Shopping.</p>
+                        <div class="action-tag bg-indigo-500 mt-2">Contenido</div>
+                        <p class="text-detail">Planificación y producción del siguiente set de contenido de confianza (testimonios).</p>
+                    </div>
+
+                    <div class="calendar-cell">
+                        <div class="action-tag bg-gray-400">Redes Sociales</div>
+                        <p class="text-detail mb-1">Aumento de la frecuencia de publicaciones de estilo y outfits en Instagram para mantener el engagement.</p>
+                        <p class="text-detail">Revisión general de métricas para ajustar el plan del mes siguiente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE ACCIONES CONTINUAS -->
+        <!-- Fondo de la sección de acciones continuas a blanco suave para legibilidad sobre el dorado -->
+      
+
+    </div>
+
+</body>
+</html>
